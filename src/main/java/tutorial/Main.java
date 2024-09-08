@@ -11,16 +11,30 @@ public class Main {
 		//System.out.println(hotelService.filterHotelByPrice(4000)); 
 //		System.out.println(hotelService.filterHotelByStarRating(ht)); 
 	
-	 HotelService hotelService = new HotelService();
-	 
-	 List<Hotel> hotelsByPrice=hotelService.filterHotels(new FilterHotelsLessThanPrice(6000));
-	 System.out.println(hotelsByPrice);
-	 
-	 System.out.println("--------------------------------------------------------------");
+		 HotelService hotelService = new HotelService();
+		 int price = 6000;  // Ensure price is not modified
+
+		 List<Hotel> hotelsByPrice = hotelService.filterHotels(new FilteringCondition() {
+		     @Override
+		     public boolean test(Hotel hotel) {
+		         return hotel.getPricePerNight() <= price;
+		     }
+		 });
+		 System.out.println(hotelsByPrice);
+		 
+System.out.println("--------------------------------------------------------------------------------------------------");
 	 
 	 HotelType ht = HotelType.FIVE_STAR;
 
-	 List<Hotel>hotels=hotelService.filterHotels(new FilterHotelByStarRating(ht));
+	 List<Hotel>hotels=hotelService.filterHotels(new  FilteringCondition() {
+		
+
+			@Override
+			public boolean test(Hotel hotel) {
+				return hotel.getHotelType()==ht;
+			}
+			
+	 });
 	 System.out.println(hotels);
 	 
 /*Passing function in java
