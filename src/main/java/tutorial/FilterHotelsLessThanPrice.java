@@ -7,7 +7,7 @@ public class FilterHotelsLessThanPrice implements FilteringCondition {
 	public FilterHotelsLessThanPrice(int  price) {
         this.price=price;
 	}
-
+	
 	@Override
 	public boolean test(Hotel hotel) {
 		return hotel.getPricePerNight()<=price;

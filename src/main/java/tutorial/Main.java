@@ -23,5 +23,16 @@ public class Main {
 	 List<Hotel>hotels=hotelService.filterHotels(new FilterHotelByStarRating(ht));
 	 System.out.println(hotels);
 	 
+/*Passing function in java
+ * 
+ * 1.create an interface
+ * 2.instantiate a class  that implements the interface
+ * 3.implement the method of the interfas=ce ,
+ *   where the method body = function body which 
+ *   you wanted to pass as parameter
+ * 4.pass an object of the concrete implementation of the interface  
+ * 
+ */
+	 
 	 }
 }
