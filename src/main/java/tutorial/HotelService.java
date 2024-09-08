@@ -19,40 +19,52 @@ public class HotelService {
 		
 	}
 	
-	private boolean isHotelLessThan(int price, Hotel hotel) {
-	     return hotel.getPricePerNight()<=price;
-	}
-	
-	public List<Hotel> filterHotelByPrice(int price) {
-		List<Hotel> filteredHotels = new ArrayList<Hotel>();
-		
-		for(Hotel hotel:listOfHotels) {
-			if(isHotelLessThan(price,hotel))
-			    filteredHotels.add(hotel);
-		}
-		
-		return filteredHotels;
-	}
-	
-	private boolean isHotelStarRating(HotelType hotelType, Hotel hotel) {
-		return hotel.getHotelType()==hotelType;
-	}
+//	private boolean isHotelLessThan(int price, Hotel hotel) {
+//	     return hotel.getPricePerNight()<=price;
+//	}
+//	
+//	public List<Hotel> filterHotelByPrice(int price) {
+//		List<Hotel> filteredHotels = new ArrayList<Hotel>();
+//		
+//		for(Hotel hotel:listOfHotels) {
+//			if(isHotelLessThan(price,hotel))
+//			    filteredHotels.add(hotel);
+//		}
+//		
+//		return filteredHotels;
+//	}
+//	
+//	private boolean isHotelStarRating(HotelType hotelType, Hotel hotel) {
+//		return hotel.getHotelType()==hotelType;
+//	}
+//
+//	
+//	public List<Hotel> filterHotelByStarRating(HotelType hotelType) {
+//		
+//		List<Hotel>filteredHotels = new ArrayList<Hotel>();
+//		
+//		for(Hotel hotel : listOfHotels) {
+//			if(isHotelStarRating(hotelType,hotel))
+//				filteredHotels.add(hotel);
+//		}
+//		
+//		return filteredHotels;
+//		
+//	}
 
 	
-	public List<Hotel> filterHotelByStarRating(HotelType hotelType) {
-		
-		List<Hotel>filteredHotels = new ArrayList<Hotel>();
-		
-		for(Hotel hotel : listOfHotels) {
-			if(isHotelStarRating(hotelType,hotel))
-				filteredHotels.add(hotel);
-		}
-		
-		return filteredHotels;
-		
-	}
-
 	
+
+public List<Hotel> filterHotels(FilteringCondition filteringCondition) {
+	List<Hotel> filteredHotels = new ArrayList<Hotel>();
+	
+	for(Hotel hotel:listOfHotels) {
+		if(filteringCondition.test(hotel))
+		    filteredHotels.add(hotel);
+	}
+	
+	return filteredHotels;
+}
 	
 	
 }
