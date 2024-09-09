@@ -1,5 +1,7 @@
 package tutorial;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -20,16 +22,16 @@ public class Main {
 //		         return hotel.getPricePerNight() <= price;
 //		     }
 //		 });
-		 
-    	 HotelService hotelService = new HotelService();
-		 int price=2000;
-     	 List<Hotel> hotelsByPrice = hotelService.filterHotels((Hotel hotel)->{//here using lambda exp
-     		 return hotel.getPricePerNight()<=price;
-     	 });
-		 System.out.println(hotelsByPrice);
-		 
-System.out.println("--------------------------------------------------------------------------------------------------");
-	 
+//		 
+//    	 HotelService hotelService = new HotelService();
+//		 int price=2000;
+//     	 List<Hotel> hotelsByPrice = hotelService.filterHotels((Hotel hotel)->{//here using lambda exp
+//     		 return hotel.getPricePerNight()<=price;
+//     	 });
+//		 System.out.println(hotelsByPrice);
+//		 
+//System.out.println("--------------------------------------------------------------------------------------------------");
+//	 
 //	 HotelType ht = HotelType.FIVE_STAR;
 //
 //	 List<Hotel>hotels=hotelService.filterHotels(new  FilteringCondition() {
@@ -42,14 +44,18 @@ System.out.println("------------------------------------------------------------
 //			
 //	 });
 //	 System.out.println(hotels);
-HotelType ht = HotelType.THREE_STAR;
+//HotelType ht = HotelType.THREE_STAR;
+//
+//List<Hotel>hotels=hotelService.filterHotels((Hotel hotel)-> {//here using lambda exp
+//		return hotel.getHotelType()==ht;		
+//});
+//System.out.println(hotels);
 
-List<Hotel>hotels=hotelService.filterHotels((Hotel hotel)-> {//here using lambda exp
-		return hotel.getHotelType()==ht;		
-});
-System.out.println(hotels);
 
-	 
+		 List<Integer>lst=new ArrayList<Integer>(List.of(6,4,8,1,4,3));
+		 Collections.sort(lst,(Integer a,Integer b)-> {return a-b;});
+		 
+		 System.out.println(lst);
 /*Passing function in java
  * 
  * 1.create an interface
